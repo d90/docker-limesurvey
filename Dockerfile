@@ -1,7 +1,7 @@
 FROM php:5.5-apache
 MAINTAINER dan.p.turner@gmail.com
 
-ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=1635:limesurvey250plus-build160421targz
+ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=1640:limesurvey250plus-build160425targz
 
 RUN docker-php-ext-install pdo pdo_mysql \
     && apt-get update && apt-get install -y \
