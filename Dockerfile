@@ -31,6 +31,7 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && chmod -R 755 /var/www/html/tmp \
     && chmod -R 755 /var/www/html/upload \
     && chmod -R 755 /var/www/html/application/config \
+    && touch /var/www/html/application/config/config.php \
     && mkdir -p /var/lib/php5 \
     && chown www-data:www-data /var/lib/php5
 
