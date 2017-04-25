@@ -5,6 +5,7 @@ ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2044:limesur
 #php extensions
 RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && apt-get update && apt-get install -y \
+        libdbd-freetds \
         freetds-bin \
         freetds-dev \
         freetds-common \
