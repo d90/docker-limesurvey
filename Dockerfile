@@ -1,10 +1,13 @@
-FROM php:5.5-apache
-MAINTAINER dan.p.turner@gmail.com
+FROM php:5.6.30-apache
+MAINTAINER n.dininno@gmail.com
 
-ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=1655:limesurvey250plus-build160430targz
+ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2044:limesurvey2647%20170404targz
 
 RUN docker-php-ext-install pdo pdo_mysql \
+    && docker-php-ext-install pdo pdo_dblib\
+    && docker-php-ext-install pdo pdo_sqlsrv \
     && apt-get update && apt-get install -y \
+        freetds-common \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
