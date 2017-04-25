@@ -37,5 +37,3 @@ RUN docker-php-ext-install pdo pdo_mysql \
     && mkdir -p /var/lib/php5 \
     && chown www-data:www-data /var/lib/php5
 
-VOLUME /var/www/html/upload
-VOLUME /var/www/html/application/config
