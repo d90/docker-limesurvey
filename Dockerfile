@@ -3,7 +3,7 @@ MAINTAINER n.dininno@gmail.com
 
 ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2044:limesurvey2647%20170404targz
 #php extensions
-RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_sqlsrv \
+RUN docker-php-ext-install pdo pdo_mysql pdo_dblib \
     && apt-get update && apt-get install -y \
         freetds-common \
         libfreetype6-dev \
