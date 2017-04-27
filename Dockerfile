@@ -5,14 +5,11 @@ ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2044:limesur
 #php extensions
 RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && apt-get update && apt-get install -y \
-        libdbd-freetds \
+        unixodbc \
+        unixodbc-dev \
         freetds-bin \
         freetds-dev \
-        freetds-common \
-        libct4 \
-        libsybdb5 \
         tdsodbc \
-        php5-mssql \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -30,6 +27,7 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
     && rm -rf /var/lib/apt/lists/* \
+ 
 
     #Download and install LimeSurvey
     && curl -SL "$DOWNLOAD_URL" -o /tmp/lime.tar.gz \
