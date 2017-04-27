@@ -2,8 +2,8 @@ FROM php:5.6.30-apache
 MAINTAINER n.dininno@gmail.com
 
 ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2044:limesurvey2647%20170404targz
-#php extensions
-RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
+#php extensions. Updated to mysqli
+RUN docker-php-ext-install pdo pdo_mysqli pdo_dblib pdo_pgsql \
     && apt-get update && apt-get install -y \
         libdbd-freetds \
         freetds-bin \
@@ -12,6 +12,7 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
         libct4 \
         libsybdb5 \
         tdsodbc \
+        php5-mssql \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
@@ -29,8 +30,6 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
     && rm -rf /var/lib/apt/lists/* \
-    && touch /usr/freetds/include/tds.h \
-    && touch /usr/freetds/lib/libtds.a \
 
     #Download and install LimeSurvey
     && curl -SL "$DOWNLOAD_URL" -o /tmp/lime.tar.gz \
