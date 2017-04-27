@@ -40,3 +40,6 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && mkdir -p /var/lib/php5 \
     && chown www-data:www-data /var/lib/php5
 
+    ADD etc_freetds_freetds.conf /etc/freetds/freetds.conf
+    ADD etc_odbc.ini /etc/odbc.ini
+    ADD etc_odbcinst.ini /etc/odbcinst.ini
