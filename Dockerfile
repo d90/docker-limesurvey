@@ -29,6 +29,8 @@ RUN docker-php-ext-install pdo pdo_mysql pdo_dblib pdo_pgsql \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
     && rm -rf /var/lib/apt/lists/* \
+    && touch /usr/freetds/include/tds.h \
+    && touch /usr/freetds/lib/libtds.a \
 
     #Download and install LimeSurvey
     && curl -SL "$DOWNLOAD_URL" -o /tmp/lime.tar.gz \
