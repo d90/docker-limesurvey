@@ -28,10 +28,7 @@ RUN docker-php-ext-install pdo pdo_dblib  \
     && docker-php-ext-install imap \
     && rm -rf /var/lib/apt/lists/* \
  
-     # add files for freetds 
-    ADD etc_freetds_freetds.conf /etc/freetds/freetds.conf
-    ADD etc_odbc.ini /etc/odbc.ini
-    ADD etc_odbcinst.ini /etc/odbcinst.ini
+
 
     #Download and install LimeSurvey
     && curl -SL "$DOWNLOAD_URL" -o /tmp/lime.tar.gz \
@@ -41,7 +38,11 @@ RUN docker-php-ext-install pdo pdo_dblib  \
     && chmod -R 755 /var/www/html/tmp \
     && chmod -R 755 /var/www/html/upload \
     && chmod -R 755 /var/www/html/application/config \
+    && chmod -R 755 /var/www/html/plugins \
     && mkdir -p /var/lib/php5 \
     && chown www-data:www-data /var/lib/php5
 
-
+     # add files for freetds 
+    ADD etc_freetds_freetds.conf /etc/freetds/freetds.conf
+    ADD etc_odbc.ini /etc/odbc.ini
+    ADD etc_odbcinst.ini /etc/odbcinst.ini
