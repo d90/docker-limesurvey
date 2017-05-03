@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
+    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/ \
     && rm -rf /var/lib/apt/lists/* \
  
 
