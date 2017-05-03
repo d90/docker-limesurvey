@@ -28,6 +28,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
     && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/local/freetds/lib/libsybdb.so.5 /usr/lib64/libsybdb.so.5 \
+    && ln -s /usr/local/freetds/lib/libsybdb.so.5 /usr/local/freetds/lib64/libsybdb.so \
  
 
 
