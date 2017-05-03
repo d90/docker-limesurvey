@@ -18,7 +18,8 @@ RUN apt-get update && apt-get install -y \
         libc-client-dev \
         libkrb5-dev \
         
-   # && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.a|so \
+    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.so /usr/lib/libsybdb.so \
+    && ln -s /usr/lib/x86_64-linux-gnu/libsybdb.a /usr/lib/libsybdb.a \
     && docker-php-ext-install pdo pdo_dblib  \
     && docker-php-ext-install -j$(nproc) iconv mcrypt \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
