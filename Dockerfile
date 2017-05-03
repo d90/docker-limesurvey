@@ -27,7 +27,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install zip \
     && docker-php-ext-configure imap --with-imap-ssl --with-kerberos \
     && docker-php-ext-install imap \
-    && ln -s /usr/local/freetds/lib lib64 \
     && rm -rf /var/lib/apt/lists/* \
  
 
