@@ -1,7 +1,7 @@
 FROM php:5.6.30-apache
 MAINTAINER n.dininno@gmail.com
 
-ENV DOWNLOAD_URL http://download.limesurvey.org/latest-stable-release/limesurvey2.65.0+170502.tar.gz
+ENV DOWNLOAD_URL http://download.limesurvey.org/latest-stable-release/limesurvey2.67.1+170626.tar.gz
 #php extensions
 RUN apt-get update && apt-get install -y \
         unixodbc \
